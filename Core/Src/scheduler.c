@@ -48,20 +48,19 @@ void SCH_Dispatch_Tasks(void){
 		{
 			if(SCH_tasks_G[i].Delay == 0)
 			{
-				SCH_tasks_G[i].Delay = SCH_tasks_G[i].Period/TIMER_CYCLE;
-			}else
-			{
+				SCH_tasks_G[i].Delay = SCH_tasks_G[i].Period;
+			}else{
 
 				SCH_tasks_G[i].Delay -= min_time;
 			}
 		}
-		flag = 1;
 		min_time =  SCH_tasks_G[0].Delay;
-	}
-	for(int i = 0; i < current_index_task; i++)
-	{
-		if(min_time >  SCH_tasks_G[i].Delay)
-			min_time =  SCH_tasks_G[i].Delay;
+		for(int i = 0; i < current_index_task; i++)
+		{
+			if(min_time >  SCH_tasks_G[i].Delay)
+				min_time =  SCH_tasks_G[i].Delay;
+		}
+		flag = 1;
 	}
 
 	if(time == min_time)
