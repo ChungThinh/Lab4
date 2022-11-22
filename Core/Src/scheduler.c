@@ -49,7 +49,7 @@ void SCH_Dispatch_Tasks(void){
 			if(SCH_tasks_G[i].Delay == 0)
 			{
 				SCH_tasks_G[i].Delay = SCH_tasks_G[i].Period/TIMER_CYCLE;
-			}
+			}else
 			{
 
 				SCH_tasks_G[i].Delay -= min_time;

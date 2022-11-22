@@ -37,13 +37,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_macro  000165ad  00000000  00000000  0002b3f8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000a0e7  00000000  00000000  000419a5  2**0
+ 17 .debug_line   0000a0e2  00000000  00000000  000419a5  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00081d17  00000000  00000000  0004ba8c  2**0
+ 18 .debug_str    00081d17  00000000  00000000  0004ba87  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000cd7a3  2**0
+ 19 .comment      00000053  00000000  00000000  000cd79e  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  0000274c  00000000  00000000  000cd7f8  2**2
+ 20 .debug_frame  0000274c  00000000  00000000  000cd7f4  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -790,12 +790,12 @@ void SCH_Dispatch_Tasks(void){
  8000552:	4b7e      	ldr	r3, [pc, #504]	; (800074c <SCH_Dispatch_Tasks+0x200>)
  8000554:	681b      	ldr	r3, [r3, #0]
  8000556:	2b00      	cmp	r3, #0
- 8000558:	d148      	bne.n	80005ec <SCH_Dispatch_Tasks+0xa0>
+ 8000558:	d149      	bne.n	80005ee <SCH_Dispatch_Tasks+0xa2>
 	{
 		for(int i = 0; i < current_index_task; i++)
  800055a:	2300      	movs	r3, #0
  800055c:	60fb      	str	r3, [r7, #12]
- 800055e:	e038      	b.n	80005d2 <SCH_Dispatch_Tasks+0x86>
+ 800055e:	e039      	b.n	80005d4 <SCH_Dispatch_Tasks+0x88>
 		{
 			if(SCH_tasks_G[i].Delay == 0)
  8000560:	497b      	ldr	r1, [pc, #492]	; (8000750 <SCH_Dispatch_Tasks+0x204>)
@@ -808,7 +808,7 @@ void SCH_Dispatch_Tasks(void){
  800056e:	3304      	adds	r3, #4
  8000570:	681b      	ldr	r3, [r3, #0]
  8000572:	2b00      	cmp	r3, #0
- 8000574:	d115      	bne.n	80005a2 <SCH_Dispatch_Tasks+0x56>
+ 8000574:	d116      	bne.n	80005a4 <SCH_Dispatch_Tasks+0x58>
 			{
 				SCH_tasks_G[i].Delay = SCH_tasks_G[i].Period/TIMER_CYCLE;
  8000576:	4976      	ldr	r1, [pc, #472]	; (8000750 <SCH_Dispatch_Tasks+0x204>)
@@ -832,262 +832,262 @@ void SCH_Dispatch_Tasks(void){
  800059c:	4403      	add	r3, r0
  800059e:	3304      	adds	r3, #4
  80005a0:	6019      	str	r1, [r3, #0]
-			}
+ 80005a2:	e014      	b.n	80005ce <SCH_Dispatch_Tasks+0x82>
+			}else
 			{
 
 				SCH_tasks_G[i].Delay -= min_time;
- 80005a2:	496b      	ldr	r1, [pc, #428]	; (8000750 <SCH_Dispatch_Tasks+0x204>)
- 80005a4:	68fa      	ldr	r2, [r7, #12]
- 80005a6:	4613      	mov	r3, r2
- 80005a8:	009b      	lsls	r3, r3, #2
- 80005aa:	4413      	add	r3, r2
- 80005ac:	009b      	lsls	r3, r3, #2
- 80005ae:	440b      	add	r3, r1
- 80005b0:	3304      	adds	r3, #4
- 80005b2:	681b      	ldr	r3, [r3, #0]
- 80005b4:	4a68      	ldr	r2, [pc, #416]	; (8000758 <SCH_Dispatch_Tasks+0x20c>)
- 80005b6:	6812      	ldr	r2, [r2, #0]
- 80005b8:	1a99      	subs	r1, r3, r2
- 80005ba:	4865      	ldr	r0, [pc, #404]	; (8000750 <SCH_Dispatch_Tasks+0x204>)
- 80005bc:	68fa      	ldr	r2, [r7, #12]
- 80005be:	4613      	mov	r3, r2
- 80005c0:	009b      	lsls	r3, r3, #2
- 80005c2:	4413      	add	r3, r2
- 80005c4:	009b      	lsls	r3, r3, #2
- 80005c6:	4403      	add	r3, r0
- 80005c8:	3304      	adds	r3, #4
- 80005ca:	6019      	str	r1, [r3, #0]
+ 80005a4:	496a      	ldr	r1, [pc, #424]	; (8000750 <SCH_Dispatch_Tasks+0x204>)
+ 80005a6:	68fa      	ldr	r2, [r7, #12]
+ 80005a8:	4613      	mov	r3, r2
+ 80005aa:	009b      	lsls	r3, r3, #2
+ 80005ac:	4413      	add	r3, r2
+ 80005ae:	009b      	lsls	r3, r3, #2
+ 80005b0:	440b      	add	r3, r1
+ 80005b2:	3304      	adds	r3, #4
+ 80005b4:	681b      	ldr	r3, [r3, #0]
+ 80005b6:	4a68      	ldr	r2, [pc, #416]	; (8000758 <SCH_Dispatch_Tasks+0x20c>)
+ 80005b8:	6812      	ldr	r2, [r2, #0]
+ 80005ba:	1a99      	subs	r1, r3, r2
+ 80005bc:	4864      	ldr	r0, [pc, #400]	; (8000750 <SCH_Dispatch_Tasks+0x204>)
+ 80005be:	68fa      	ldr	r2, [r7, #12]
+ 80005c0:	4613      	mov	r3, r2
+ 80005c2:	009b      	lsls	r3, r3, #2
+ 80005c4:	4413      	add	r3, r2
+ 80005c6:	009b      	lsls	r3, r3, #2
+ 80005c8:	4403      	add	r3, r0
+ 80005ca:	3304      	adds	r3, #4
+ 80005cc:	6019      	str	r1, [r3, #0]
 		for(int i = 0; i < current_index_task; i++)
- 80005cc:	68fb      	ldr	r3, [r7, #12]
- 80005ce:	3301      	adds	r3, #1
- 80005d0:	60fb      	str	r3, [r7, #12]
- 80005d2:	4b62      	ldr	r3, [pc, #392]	; (800075c <SCH_Dispatch_Tasks+0x210>)
- 80005d4:	681b      	ldr	r3, [r3, #0]
- 80005d6:	68fa      	ldr	r2, [r7, #12]
- 80005d8:	429a      	cmp	r2, r3
- 80005da:	dbc1      	blt.n	8000560 <SCH_Dispatch_Tasks+0x14>
+ 80005ce:	68fb      	ldr	r3, [r7, #12]
+ 80005d0:	3301      	adds	r3, #1
+ 80005d2:	60fb      	str	r3, [r7, #12]
+ 80005d4:	4b61      	ldr	r3, [pc, #388]	; (800075c <SCH_Dispatch_Tasks+0x210>)
+ 80005d6:	681b      	ldr	r3, [r3, #0]
+ 80005d8:	68fa      	ldr	r2, [r7, #12]
+ 80005da:	429a      	cmp	r2, r3
+ 80005dc:	dbc0      	blt.n	8000560 <SCH_Dispatch_Tasks+0x14>
 			}
 		}
 		flag = 1;
- 80005dc:	4b5b      	ldr	r3, [pc, #364]	; (800074c <SCH_Dispatch_Tasks+0x200>)
- 80005de:	2201      	movs	r2, #1
- 80005e0:	601a      	str	r2, [r3, #0]
+ 80005de:	4b5b      	ldr	r3, [pc, #364]	; (800074c <SCH_Dispatch_Tasks+0x200>)
+ 80005e0:	2201      	movs	r2, #1
+ 80005e2:	601a      	str	r2, [r3, #0]
 		min_time =  SCH_tasks_G[0].Delay;
- 80005e2:	4b5b      	ldr	r3, [pc, #364]	; (8000750 <SCH_Dispatch_Tasks+0x204>)
- 80005e4:	685b      	ldr	r3, [r3, #4]
- 80005e6:	461a      	mov	r2, r3
- 80005e8:	4b5b      	ldr	r3, [pc, #364]	; (8000758 <SCH_Dispatch_Tasks+0x20c>)
- 80005ea:	601a      	str	r2, [r3, #0]
+ 80005e4:	4b5a      	ldr	r3, [pc, #360]	; (8000750 <SCH_Dispatch_Tasks+0x204>)
+ 80005e6:	685b      	ldr	r3, [r3, #4]
+ 80005e8:	461a      	mov	r2, r3
+ 80005ea:	4b5b      	ldr	r3, [pc, #364]	; (8000758 <SCH_Dispatch_Tasks+0x20c>)
+ 80005ec:	601a      	str	r2, [r3, #0]
 	}
 	for(int i = 0; i < current_index_task; i++)
- 80005ec:	2300      	movs	r3, #0
- 80005ee:	60bb      	str	r3, [r7, #8]
- 80005f0:	e01b      	b.n	800062a <SCH_Dispatch_Tasks+0xde>
+ 80005ee:	2300      	movs	r3, #0
+ 80005f0:	60bb      	str	r3, [r7, #8]
+ 80005f2:	e01b      	b.n	800062c <SCH_Dispatch_Tasks+0xe0>
 	{
 		if(min_time >  SCH_tasks_G[i].Delay)
- 80005f2:	4957      	ldr	r1, [pc, #348]	; (8000750 <SCH_Dispatch_Tasks+0x204>)
- 80005f4:	68ba      	ldr	r2, [r7, #8]
- 80005f6:	4613      	mov	r3, r2
- 80005f8:	009b      	lsls	r3, r3, #2
- 80005fa:	4413      	add	r3, r2
- 80005fc:	009b      	lsls	r3, r3, #2
- 80005fe:	440b      	add	r3, r1
- 8000600:	3304      	adds	r3, #4
- 8000602:	681b      	ldr	r3, [r3, #0]
- 8000604:	4a54      	ldr	r2, [pc, #336]	; (8000758 <SCH_Dispatch_Tasks+0x20c>)
- 8000606:	6812      	ldr	r2, [r2, #0]
- 8000608:	4293      	cmp	r3, r2
- 800060a:	d20b      	bcs.n	8000624 <SCH_Dispatch_Tasks+0xd8>
+ 80005f4:	4956      	ldr	r1, [pc, #344]	; (8000750 <SCH_Dispatch_Tasks+0x204>)
+ 80005f6:	68ba      	ldr	r2, [r7, #8]
+ 80005f8:	4613      	mov	r3, r2
+ 80005fa:	009b      	lsls	r3, r3, #2
+ 80005fc:	4413      	add	r3, r2
+ 80005fe:	009b      	lsls	r3, r3, #2
+ 8000600:	440b      	add	r3, r1
+ 8000602:	3304      	adds	r3, #4
+ 8000604:	681b      	ldr	r3, [r3, #0]
+ 8000606:	4a54      	ldr	r2, [pc, #336]	; (8000758 <SCH_Dispatch_Tasks+0x20c>)
+ 8000608:	6812      	ldr	r2, [r2, #0]
+ 800060a:	4293      	cmp	r3, r2
+ 800060c:	d20b      	bcs.n	8000626 <SCH_Dispatch_Tasks+0xda>
 			min_time =  SCH_tasks_G[i].Delay;
- 800060c:	4950      	ldr	r1, [pc, #320]	; (8000750 <SCH_Dispatch_Tasks+0x204>)
- 800060e:	68ba      	ldr	r2, [r7, #8]
- 8000610:	4613      	mov	r3, r2
- 8000612:	009b      	lsls	r3, r3, #2
- 8000614:	4413      	add	r3, r2
- 8000616:	009b      	lsls	r3, r3, #2
- 8000618:	440b      	add	r3, r1
- 800061a:	3304      	adds	r3, #4
- 800061c:	681b      	ldr	r3, [r3, #0]
- 800061e:	461a      	mov	r2, r3
- 8000620:	4b4d      	ldr	r3, [pc, #308]	; (8000758 <SCH_Dispatch_Tasks+0x20c>)
- 8000622:	601a      	str	r2, [r3, #0]
+ 800060e:	4950      	ldr	r1, [pc, #320]	; (8000750 <SCH_Dispatch_Tasks+0x204>)
+ 8000610:	68ba      	ldr	r2, [r7, #8]
+ 8000612:	4613      	mov	r3, r2
+ 8000614:	009b      	lsls	r3, r3, #2
+ 8000616:	4413      	add	r3, r2
+ 8000618:	009b      	lsls	r3, r3, #2
+ 800061a:	440b      	add	r3, r1
+ 800061c:	3304      	adds	r3, #4
+ 800061e:	681b      	ldr	r3, [r3, #0]
+ 8000620:	461a      	mov	r2, r3
+ 8000622:	4b4d      	ldr	r3, [pc, #308]	; (8000758 <SCH_Dispatch_Tasks+0x20c>)
+ 8000624:	601a      	str	r2, [r3, #0]
 	for(int i = 0; i < current_index_task; i++)
- 8000624:	68bb      	ldr	r3, [r7, #8]
- 8000626:	3301      	adds	r3, #1
- 8000628:	60bb      	str	r3, [r7, #8]
- 800062a:	4b4c      	ldr	r3, [pc, #304]	; (800075c <SCH_Dispatch_Tasks+0x210>)
- 800062c:	681b      	ldr	r3, [r3, #0]
- 800062e:	68ba      	ldr	r2, [r7, #8]
- 8000630:	429a      	cmp	r2, r3
- 8000632:	dbde      	blt.n	80005f2 <SCH_Dispatch_Tasks+0xa6>
+ 8000626:	68bb      	ldr	r3, [r7, #8]
+ 8000628:	3301      	adds	r3, #1
+ 800062a:	60bb      	str	r3, [r7, #8]
+ 800062c:	4b4b      	ldr	r3, [pc, #300]	; (800075c <SCH_Dispatch_Tasks+0x210>)
+ 800062e:	681b      	ldr	r3, [r3, #0]
+ 8000630:	68ba      	ldr	r2, [r7, #8]
+ 8000632:	429a      	cmp	r2, r3
+ 8000634:	dbde      	blt.n	80005f4 <SCH_Dispatch_Tasks+0xa8>
 	}
 
 	if(time == min_time)
- 8000634:	4b4a      	ldr	r3, [pc, #296]	; (8000760 <SCH_Dispatch_Tasks+0x214>)
- 8000636:	681a      	ldr	r2, [r3, #0]
- 8000638:	4b47      	ldr	r3, [pc, #284]	; (8000758 <SCH_Dispatch_Tasks+0x20c>)
- 800063a:	681b      	ldr	r3, [r3, #0]
- 800063c:	429a      	cmp	r2, r3
- 800063e:	d13c      	bne.n	80006ba <SCH_Dispatch_Tasks+0x16e>
+ 8000636:	4b4a      	ldr	r3, [pc, #296]	; (8000760 <SCH_Dispatch_Tasks+0x214>)
+ 8000638:	681a      	ldr	r2, [r3, #0]
+ 800063a:	4b47      	ldr	r3, [pc, #284]	; (8000758 <SCH_Dispatch_Tasks+0x20c>)
+ 800063c:	681b      	ldr	r3, [r3, #0]
+ 800063e:	429a      	cmp	r2, r3
+ 8000640:	d13c      	bne.n	80006bc <SCH_Dispatch_Tasks+0x170>
 	{
 		for(int i = 0; i < current_index_task; i++)
- 8000640:	2300      	movs	r3, #0
- 8000642:	607b      	str	r3, [r7, #4]
- 8000644:	e02e      	b.n	80006a4 <SCH_Dispatch_Tasks+0x158>
+ 8000642:	2300      	movs	r3, #0
+ 8000644:	607b      	str	r3, [r7, #4]
+ 8000646:	e02e      	b.n	80006a6 <SCH_Dispatch_Tasks+0x15a>
 		{
 			if(min_time == SCH_tasks_G[i].Delay)
- 8000646:	4942      	ldr	r1, [pc, #264]	; (8000750 <SCH_Dispatch_Tasks+0x204>)
- 8000648:	687a      	ldr	r2, [r7, #4]
- 800064a:	4613      	mov	r3, r2
- 800064c:	009b      	lsls	r3, r3, #2
- 800064e:	4413      	add	r3, r2
- 8000650:	009b      	lsls	r3, r3, #2
- 8000652:	440b      	add	r3, r1
- 8000654:	3304      	adds	r3, #4
- 8000656:	681b      	ldr	r3, [r3, #0]
- 8000658:	4a3f      	ldr	r2, [pc, #252]	; (8000758 <SCH_Dispatch_Tasks+0x20c>)
- 800065a:	6812      	ldr	r2, [r2, #0]
- 800065c:	4293      	cmp	r3, r2
- 800065e:	d11e      	bne.n	800069e <SCH_Dispatch_Tasks+0x152>
+ 8000648:	4941      	ldr	r1, [pc, #260]	; (8000750 <SCH_Dispatch_Tasks+0x204>)
+ 800064a:	687a      	ldr	r2, [r7, #4]
+ 800064c:	4613      	mov	r3, r2
+ 800064e:	009b      	lsls	r3, r3, #2
+ 8000650:	4413      	add	r3, r2
+ 8000652:	009b      	lsls	r3, r3, #2
+ 8000654:	440b      	add	r3, r1
+ 8000656:	3304      	adds	r3, #4
+ 8000658:	681b      	ldr	r3, [r3, #0]
+ 800065a:	4a3f      	ldr	r2, [pc, #252]	; (8000758 <SCH_Dispatch_Tasks+0x20c>)
+ 800065c:	6812      	ldr	r2, [r2, #0]
+ 800065e:	4293      	cmp	r3, r2
+ 8000660:	d11e      	bne.n	80006a0 <SCH_Dispatch_Tasks+0x154>
 			{
 				SCH_tasks_G[i].RunMe += 1;
- 8000660:	493b      	ldr	r1, [pc, #236]	; (8000750 <SCH_Dispatch_Tasks+0x204>)
- 8000662:	687a      	ldr	r2, [r7, #4]
- 8000664:	4613      	mov	r3, r2
- 8000666:	009b      	lsls	r3, r3, #2
- 8000668:	4413      	add	r3, r2
- 800066a:	009b      	lsls	r3, r3, #2
- 800066c:	440b      	add	r3, r1
- 800066e:	330c      	adds	r3, #12
- 8000670:	781b      	ldrb	r3, [r3, #0]
- 8000672:	3301      	adds	r3, #1
- 8000674:	b2d8      	uxtb	r0, r3
- 8000676:	4936      	ldr	r1, [pc, #216]	; (8000750 <SCH_Dispatch_Tasks+0x204>)
- 8000678:	687a      	ldr	r2, [r7, #4]
- 800067a:	4613      	mov	r3, r2
- 800067c:	009b      	lsls	r3, r3, #2
- 800067e:	4413      	add	r3, r2
- 8000680:	009b      	lsls	r3, r3, #2
- 8000682:	440b      	add	r3, r1
- 8000684:	330c      	adds	r3, #12
- 8000686:	4602      	mov	r2, r0
- 8000688:	701a      	strb	r2, [r3, #0]
+ 8000662:	493b      	ldr	r1, [pc, #236]	; (8000750 <SCH_Dispatch_Tasks+0x204>)
+ 8000664:	687a      	ldr	r2, [r7, #4]
+ 8000666:	4613      	mov	r3, r2
+ 8000668:	009b      	lsls	r3, r3, #2
+ 800066a:	4413      	add	r3, r2
+ 800066c:	009b      	lsls	r3, r3, #2
+ 800066e:	440b      	add	r3, r1
+ 8000670:	330c      	adds	r3, #12
+ 8000672:	781b      	ldrb	r3, [r3, #0]
+ 8000674:	3301      	adds	r3, #1
+ 8000676:	b2d8      	uxtb	r0, r3
+ 8000678:	4935      	ldr	r1, [pc, #212]	; (8000750 <SCH_Dispatch_Tasks+0x204>)
+ 800067a:	687a      	ldr	r2, [r7, #4]
+ 800067c:	4613      	mov	r3, r2
+ 800067e:	009b      	lsls	r3, r3, #2
+ 8000680:	4413      	add	r3, r2
+ 8000682:	009b      	lsls	r3, r3, #2
+ 8000684:	440b      	add	r3, r1
+ 8000686:	330c      	adds	r3, #12
+ 8000688:	4602      	mov	r2, r0
+ 800068a:	701a      	strb	r2, [r3, #0]
 				 SCH_tasks_G[i].Delay = 0;
- 800068a:	4931      	ldr	r1, [pc, #196]	; (8000750 <SCH_Dispatch_Tasks+0x204>)
- 800068c:	687a      	ldr	r2, [r7, #4]
- 800068e:	4613      	mov	r3, r2
- 8000690:	009b      	lsls	r3, r3, #2
- 8000692:	4413      	add	r3, r2
- 8000694:	009b      	lsls	r3, r3, #2
- 8000696:	440b      	add	r3, r1
- 8000698:	3304      	adds	r3, #4
- 800069a:	2200      	movs	r2, #0
- 800069c:	601a      	str	r2, [r3, #0]
+ 800068c:	4930      	ldr	r1, [pc, #192]	; (8000750 <SCH_Dispatch_Tasks+0x204>)
+ 800068e:	687a      	ldr	r2, [r7, #4]
+ 8000690:	4613      	mov	r3, r2
+ 8000692:	009b      	lsls	r3, r3, #2
+ 8000694:	4413      	add	r3, r2
+ 8000696:	009b      	lsls	r3, r3, #2
+ 8000698:	440b      	add	r3, r1
+ 800069a:	3304      	adds	r3, #4
+ 800069c:	2200      	movs	r2, #0
+ 800069e:	601a      	str	r2, [r3, #0]
 		for(int i = 0; i < current_index_task; i++)
- 800069e:	687b      	ldr	r3, [r7, #4]
- 80006a0:	3301      	adds	r3, #1
- 80006a2:	607b      	str	r3, [r7, #4]
- 80006a4:	4b2d      	ldr	r3, [pc, #180]	; (800075c <SCH_Dispatch_Tasks+0x210>)
- 80006a6:	681b      	ldr	r3, [r3, #0]
- 80006a8:	687a      	ldr	r2, [r7, #4]
- 80006aa:	429a      	cmp	r2, r3
- 80006ac:	dbcb      	blt.n	8000646 <SCH_Dispatch_Tasks+0xfa>
+ 80006a0:	687b      	ldr	r3, [r7, #4]
+ 80006a2:	3301      	adds	r3, #1
+ 80006a4:	607b      	str	r3, [r7, #4]
+ 80006a6:	4b2d      	ldr	r3, [pc, #180]	; (800075c <SCH_Dispatch_Tasks+0x210>)
+ 80006a8:	681b      	ldr	r3, [r3, #0]
+ 80006aa:	687a      	ldr	r2, [r7, #4]
+ 80006ac:	429a      	cmp	r2, r3
+ 80006ae:	dbcb      	blt.n	8000648 <SCH_Dispatch_Tasks+0xfc>
 			}
 		}
 		time = 0;
- 80006ae:	4b2c      	ldr	r3, [pc, #176]	; (8000760 <SCH_Dispatch_Tasks+0x214>)
- 80006b0:	2200      	movs	r2, #0
- 80006b2:	601a      	str	r2, [r3, #0]
+ 80006b0:	4b2b      	ldr	r3, [pc, #172]	; (8000760 <SCH_Dispatch_Tasks+0x214>)
+ 80006b2:	2200      	movs	r2, #0
+ 80006b4:	601a      	str	r2, [r3, #0]
 		flag = 0;
- 80006b4:	4b25      	ldr	r3, [pc, #148]	; (800074c <SCH_Dispatch_Tasks+0x200>)
- 80006b6:	2200      	movs	r2, #0
- 80006b8:	601a      	str	r2, [r3, #0]
+ 80006b6:	4b25      	ldr	r3, [pc, #148]	; (800074c <SCH_Dispatch_Tasks+0x200>)
+ 80006b8:	2200      	movs	r2, #0
+ 80006ba:	601a      	str	r2, [r3, #0]
 	}
 	for(int i = 0; i < current_index_task; i++){
- 80006ba:	2300      	movs	r3, #0
- 80006bc:	603b      	str	r3, [r7, #0]
- 80006be:	e03a      	b.n	8000736 <SCH_Dispatch_Tasks+0x1ea>
+ 80006bc:	2300      	movs	r3, #0
+ 80006be:	603b      	str	r3, [r7, #0]
+ 80006c0:	e03a      	b.n	8000738 <SCH_Dispatch_Tasks+0x1ec>
 		if(SCH_tasks_G[i].RunMe > 0){
- 80006c0:	4923      	ldr	r1, [pc, #140]	; (8000750 <SCH_Dispatch_Tasks+0x204>)
- 80006c2:	683a      	ldr	r2, [r7, #0]
- 80006c4:	4613      	mov	r3, r2
- 80006c6:	009b      	lsls	r3, r3, #2
- 80006c8:	4413      	add	r3, r2
- 80006ca:	009b      	lsls	r3, r3, #2
- 80006cc:	440b      	add	r3, r1
- 80006ce:	330c      	adds	r3, #12
- 80006d0:	781b      	ldrb	r3, [r3, #0]
- 80006d2:	2b00      	cmp	r3, #0
- 80006d4:	d01d      	beq.n	8000712 <SCH_Dispatch_Tasks+0x1c6>
+ 80006c2:	4923      	ldr	r1, [pc, #140]	; (8000750 <SCH_Dispatch_Tasks+0x204>)
+ 80006c4:	683a      	ldr	r2, [r7, #0]
+ 80006c6:	4613      	mov	r3, r2
+ 80006c8:	009b      	lsls	r3, r3, #2
+ 80006ca:	4413      	add	r3, r2
+ 80006cc:	009b      	lsls	r3, r3, #2
+ 80006ce:	440b      	add	r3, r1
+ 80006d0:	330c      	adds	r3, #12
+ 80006d2:	781b      	ldrb	r3, [r3, #0]
+ 80006d4:	2b00      	cmp	r3, #0
+ 80006d6:	d01d      	beq.n	8000714 <SCH_Dispatch_Tasks+0x1c8>
 			SCH_tasks_G[i].RunMe--;
- 80006d6:	491e      	ldr	r1, [pc, #120]	; (8000750 <SCH_Dispatch_Tasks+0x204>)
- 80006d8:	683a      	ldr	r2, [r7, #0]
- 80006da:	4613      	mov	r3, r2
- 80006dc:	009b      	lsls	r3, r3, #2
- 80006de:	4413      	add	r3, r2
- 80006e0:	009b      	lsls	r3, r3, #2
- 80006e2:	440b      	add	r3, r1
- 80006e4:	330c      	adds	r3, #12
- 80006e6:	781b      	ldrb	r3, [r3, #0]
- 80006e8:	3b01      	subs	r3, #1
- 80006ea:	b2d8      	uxtb	r0, r3
- 80006ec:	4918      	ldr	r1, [pc, #96]	; (8000750 <SCH_Dispatch_Tasks+0x204>)
- 80006ee:	683a      	ldr	r2, [r7, #0]
- 80006f0:	4613      	mov	r3, r2
- 80006f2:	009b      	lsls	r3, r3, #2
- 80006f4:	4413      	add	r3, r2
- 80006f6:	009b      	lsls	r3, r3, #2
- 80006f8:	440b      	add	r3, r1
- 80006fa:	330c      	adds	r3, #12
- 80006fc:	4602      	mov	r2, r0
- 80006fe:	701a      	strb	r2, [r3, #0]
+ 80006d8:	491d      	ldr	r1, [pc, #116]	; (8000750 <SCH_Dispatch_Tasks+0x204>)
+ 80006da:	683a      	ldr	r2, [r7, #0]
+ 80006dc:	4613      	mov	r3, r2
+ 80006de:	009b      	lsls	r3, r3, #2
+ 80006e0:	4413      	add	r3, r2
+ 80006e2:	009b      	lsls	r3, r3, #2
+ 80006e4:	440b      	add	r3, r1
+ 80006e6:	330c      	adds	r3, #12
+ 80006e8:	781b      	ldrb	r3, [r3, #0]
+ 80006ea:	3b01      	subs	r3, #1
+ 80006ec:	b2d8      	uxtb	r0, r3
+ 80006ee:	4918      	ldr	r1, [pc, #96]	; (8000750 <SCH_Dispatch_Tasks+0x204>)
+ 80006f0:	683a      	ldr	r2, [r7, #0]
+ 80006f2:	4613      	mov	r3, r2
+ 80006f4:	009b      	lsls	r3, r3, #2
+ 80006f6:	4413      	add	r3, r2
+ 80006f8:	009b      	lsls	r3, r3, #2
+ 80006fa:	440b      	add	r3, r1
+ 80006fc:	330c      	adds	r3, #12
+ 80006fe:	4602      	mov	r2, r0
+ 8000700:	701a      	strb	r2, [r3, #0]
 			(*SCH_tasks_G[i].pTask)();
- 8000700:	4913      	ldr	r1, [pc, #76]	; (8000750 <SCH_Dispatch_Tasks+0x204>)
- 8000702:	683a      	ldr	r2, [r7, #0]
- 8000704:	4613      	mov	r3, r2
- 8000706:	009b      	lsls	r3, r3, #2
- 8000708:	4413      	add	r3, r2
- 800070a:	009b      	lsls	r3, r3, #2
- 800070c:	440b      	add	r3, r1
- 800070e:	681b      	ldr	r3, [r3, #0]
- 8000710:	4798      	blx	r3
+ 8000702:	4913      	ldr	r1, [pc, #76]	; (8000750 <SCH_Dispatch_Tasks+0x204>)
+ 8000704:	683a      	ldr	r2, [r7, #0]
+ 8000706:	4613      	mov	r3, r2
+ 8000708:	009b      	lsls	r3, r3, #2
+ 800070a:	4413      	add	r3, r2
+ 800070c:	009b      	lsls	r3, r3, #2
+ 800070e:	440b      	add	r3, r1
+ 8000710:	681b      	ldr	r3, [r3, #0]
+ 8000712:	4798      	blx	r3
 		}
 		if (SCH_tasks_G[i].Period == 0)
- 8000712:	490f      	ldr	r1, [pc, #60]	; (8000750 <SCH_Dispatch_Tasks+0x204>)
- 8000714:	683a      	ldr	r2, [r7, #0]
- 8000716:	4613      	mov	r3, r2
- 8000718:	009b      	lsls	r3, r3, #2
- 800071a:	4413      	add	r3, r2
- 800071c:	009b      	lsls	r3, r3, #2
- 800071e:	440b      	add	r3, r1
- 8000720:	3308      	adds	r3, #8
- 8000722:	681b      	ldr	r3, [r3, #0]
- 8000724:	2b00      	cmp	r3, #0
- 8000726:	d103      	bne.n	8000730 <SCH_Dispatch_Tasks+0x1e4>
+ 8000714:	490e      	ldr	r1, [pc, #56]	; (8000750 <SCH_Dispatch_Tasks+0x204>)
+ 8000716:	683a      	ldr	r2, [r7, #0]
+ 8000718:	4613      	mov	r3, r2
+ 800071a:	009b      	lsls	r3, r3, #2
+ 800071c:	4413      	add	r3, r2
+ 800071e:	009b      	lsls	r3, r3, #2
+ 8000720:	440b      	add	r3, r1
+ 8000722:	3308      	adds	r3, #8
+ 8000724:	681b      	ldr	r3, [r3, #0]
+ 8000726:	2b00      	cmp	r3, #0
+ 8000728:	d103      	bne.n	8000732 <SCH_Dispatch_Tasks+0x1e6>
 		{
 			SCH_Delete_Task(i);
- 8000728:	683b      	ldr	r3, [r7, #0]
- 800072a:	4618      	mov	r0, r3
- 800072c:	f000 f81a 	bl	8000764 <SCH_Delete_Task>
+ 800072a:	683b      	ldr	r3, [r7, #0]
+ 800072c:	4618      	mov	r0, r3
+ 800072e:	f000 f819 	bl	8000764 <SCH_Delete_Task>
 	for(int i = 0; i < current_index_task; i++){
- 8000730:	683b      	ldr	r3, [r7, #0]
- 8000732:	3301      	adds	r3, #1
- 8000734:	603b      	str	r3, [r7, #0]
- 8000736:	4b09      	ldr	r3, [pc, #36]	; (800075c <SCH_Dispatch_Tasks+0x210>)
- 8000738:	681b      	ldr	r3, [r3, #0]
- 800073a:	683a      	ldr	r2, [r7, #0]
- 800073c:	429a      	cmp	r2, r3
- 800073e:	dbbf      	blt.n	80006c0 <SCH_Dispatch_Tasks+0x174>
+ 8000732:	683b      	ldr	r3, [r7, #0]
+ 8000734:	3301      	adds	r3, #1
+ 8000736:	603b      	str	r3, [r7, #0]
+ 8000738:	4b08      	ldr	r3, [pc, #32]	; (800075c <SCH_Dispatch_Tasks+0x210>)
+ 800073a:	681b      	ldr	r3, [r3, #0]
+ 800073c:	683a      	ldr	r2, [r7, #0]
+ 800073e:	429a      	cmp	r2, r3
+ 8000740:	dbbf      	blt.n	80006c2 <SCH_Dispatch_Tasks+0x176>
 		}
 	}
 
 }
- 8000740:	bf00      	nop
  8000742:	bf00      	nop
- 8000744:	3710      	adds	r7, #16
- 8000746:	46bd      	mov	sp, r7
- 8000748:	bd80      	pop	{r7, pc}
- 800074a:	bf00      	nop
+ 8000744:	bf00      	nop
+ 8000746:	3710      	adds	r7, #16
+ 8000748:	46bd      	mov	sp, r7
+ 800074a:	bd80      	pop	{r7, pc}
  800074c:	20000034 	.word	0x20000034
  8000750:	2000003c 	.word	0x2000003c
  8000754:	20000000 	.word	0x20000000
