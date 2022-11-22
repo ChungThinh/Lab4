@@ -39,6 +39,8 @@ void SCH_Report_Status(void);
 #define NO_TASK_ID		0
 
 extern int index_task;
+extern int time;
+extern int flag;
 
 sTasks SCH_tasks_G[SCH_MAX_TASKS];
 
